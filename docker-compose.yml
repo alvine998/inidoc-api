@@ -1,0 +1,23 @@
+version: '2'
+services:
+  app:
+    # image: udagang/web-and-backend:web-admin-dev
+    image: inidoc:latest
+    ports: 
+      - "99:80"
+    environment: 
+      - APP_KEY=base64:TH4Q3RbPVkAiYMW3k6NZttkmY81PVMFAGeZEbVaZAq4=
+      - DB_HOST=103.145.226.90
+      - DB_PORT=3306
+      - DB_DATABASE=familiku_inidoc
+      - DB_USERNAME=familiku_familiku
+      - DB_PASSWORD=x4j6cL6iO7
+      - APP_DEBUG=false
+      - APP_ENV=production
+    # restart: on-failure
+    volumes:
+      - app_web:/public
+    command: bash -c apache2-foreground
+volumes: 
+  app_web:
+    
