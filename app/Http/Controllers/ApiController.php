@@ -983,6 +983,7 @@ class ApiController extends Controller
     public function postSaldoProdia(Request $request) {
         $saldo = new SaldoProdia();
 
+        $saldo->id_user = $request->input('id_user');
         $saldo->transaction_name = $request->input('transaction_name');
         $saldo->transaction_amount = $request->input('transaction_amount');
         
