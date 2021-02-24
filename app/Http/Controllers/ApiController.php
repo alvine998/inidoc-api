@@ -483,6 +483,11 @@ class ApiController extends Controller
             ]);   
         }
     }
+
+    public function getDoctorById(Request $request) {
+        $doctor = Doctor::where('id_doctor', '=', $request->id_doctor)->first();
+        return response($doctor);
+    }
     
     // Post
     public function registerUser(Request $request) {

@@ -57,6 +57,7 @@ Route::get('/getresepbyapotek/{id_apotek}', 'ApiController@getResepByApotek');
 Route::get('/gettesttrabsactionlab/{id_user}', 'ApiController@getTestLabUser');
 Route::get('/gettesttrabsactionlab', 'ApiController@getTestLabTransaction');
 Route::get('/getallapotek', 'ApiController@getAllApotek');
+Route::get('/getdoctorbyid/{id_doctor}', 'ApiController@getDoctorById');
 
 // POST
 Route::post('/loginbyphone', 'ApiController@loginByPhone');
