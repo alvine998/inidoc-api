@@ -1131,7 +1131,7 @@ class ApiController extends Controller
     }
 
     public function putDoctor(Request $request) {
-        $$doctor = Doctor::where('id_doctor', $request->id_doctor) 
+        $doctor = Doctor::where('id_doctor', $request->id_doctor) 
         ->update([
             'name_doctor' => $request->input('name_doctor'),
             'email_doctor' => $request->input('email_doctor'),
