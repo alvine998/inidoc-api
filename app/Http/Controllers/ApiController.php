@@ -1129,6 +1129,26 @@ class ApiController extends Controller
             'message' => 'Status Resep Berhasil Diupdate'
         ]);
     }
+
+    public function putDoctor(Request $request) {
+        $$doctor = Resep::where('id_doctor', $request->id_doctor) 
+        ->update([
+            'name_doctor' => $request->input('name_doctor'),
+            'email_doctor' => $request->input('email_doctor'),
+            'gender' => $request->input('gender'),
+            'phone_number_doctor' => $request->input('phone_number_doctor'),
+            'spesialis' => $request->input('spesialis'),
+            'practice_place' => $request->input('practice_place'),
+            'alumni' => $request->input('alumni'),
+            'str_number' => $request->input('str_number'),
+            'consultation_fee' => $request->input('consultation_fee'),
+            'is_active' => $request->input('is_active'),
+            ]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Update Profile Berhasil'
+        ]);
+    }
     
     public function putTestlab(Request $request, Transaction $transaction) {
         $photo = $request->input('picture_test_lab');

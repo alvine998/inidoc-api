@@ -95,6 +95,7 @@ Route::put('/deleteproduct/{id_product}', 'ApiController@deleteProduct');
 Route::put('/updatetransaksi/{id_transaction}', 'ApiController@putTransaction');
 Route::put('/updatetestlab/{id_test_lab}', 'ApiController@putTestlab');
 Route::put('/updateresep/{id_resep}', 'ApiController@putResep');
+Route::put('/updatedoctor/{id_doctor}', 'ApiController@putDoctor');
 
 // Delete
 Route::delete('/deletewishlist/{id_product}/{id_user}', 'ApiController@deleteWishlist');
