@@ -1156,10 +1156,10 @@ class ApiController extends Controller
     }
 
     public function putImageDoctor(Request $request) {
-        $doctor = Doctor::where('id_doctor', $request->id_doctor);
         $photo = $request->input('picture_profile_doctor');
         $imageName = "doctor"."_".time().".png";
         \File::put(public_path(). '/upload/doctor/' . $imageName, base64_decode($photo));
+        $doctor = Doctor::where('id_doctor', $request->id_doctor)
         ->update([
             'picture_profile_doctor' => $imageName,
             ]);
