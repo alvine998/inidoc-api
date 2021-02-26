@@ -21,15 +21,15 @@ jobs:
     - name: Login to DockerHub
       uses: docker/login-action@v1 
       with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: kiniku90
+          password: Kinikumuda2020
         
     - name: Build and push
       id: docker_build
       uses: docker/build-push-action@v2
       with:
           push: true
-          tags: yogawicak/scrap-apps:inidoc-api-latest
+          tags: kiniku90/backend-api:inidoc-api-latest
       
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
