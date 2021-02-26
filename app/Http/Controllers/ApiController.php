@@ -1154,6 +1154,20 @@ class ApiController extends Controller
             'message' => 'Update Profile Berhasil'
         ]);
     }
+
+    public function putImageDoctor(Request $request) {
+        $doctor = Doctor::where('id_doctor', $request->id_doctor);
+        $photo = $request->input('picture_profile_doctor');
+        $imageName = "doctor"."_".time().".png";
+        \File::put(public_path(). '/upload/doctor/' . $imageName, base64_decode($photo));
+        ->update([
+            'picture_profile_doctor' => $imageName,
+            ]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Update Foto Profile Berhasil'
+        ]);
+    }
     
     public function putTestlab(Request $request, Transaction $transaction) {
         $photo = $request->input('picture_test_lab');
