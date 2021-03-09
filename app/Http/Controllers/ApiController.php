@@ -859,10 +859,13 @@ class ApiController extends Controller
         $lab->picture_test_lab = $imageName;
         $lab->save();
 
+        $testLab = TestLab::orderByDesc('id_test_lab')->first();
+        
         return response()->json([
             'success' => true,
             'message' => 'Test Lab Berhasil Dibuat',
-            'imageName' => $imageName
+            'imageName' => $imageName,
+            'id_test_lab' => $testLab->id_test_lab
         ]);
     }
     
