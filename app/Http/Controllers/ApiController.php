@@ -385,7 +385,7 @@ class ApiController extends Controller
     public function getChatByUser(Request $request, ChatChannel $chat) {
         $chat = ChatChannel::where('id_user', '=', $request->id_user)
         ->join('tb_doctor', 'tb_chat_channel.id_doctor', '=', 'tb_doctor.id_doctor')
-        ->select('tb_chat_channel.*', 'tb_doctor.name_doctor', 'tb_doctor.picture_profile_doctor', 'tb_doctor.doctor_user_firebase')
+        ->select('tb_chat_channel.*', 'tb_doctor.name_doctor', 'tb_doctor.picture_profile_doctor', 'tb_doctor.doctor_user_firebase', 'tb_doctor.fcm_token_doctor')
         ->orderBy('id_chat_channel', 'desc')
         ->get();
         
