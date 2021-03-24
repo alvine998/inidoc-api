@@ -1171,6 +1171,18 @@ class ApiController extends Controller
             'message' => 'Update Foto Profile Berhasil'
         ]);
     }
+
+
+    public function putFcmDoctor(Request $request) {
+        $doctor = Doctor::where('id_doctor', $request->id_doctor)
+        ->update([
+            'fcm_token_doctor' => $request->input('fcm_token_doctor'),
+            ]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Update FCM Token Dokter Berhasil'
+        ]);
+    }
     
     public function putTestlab(Request $request, Transaction $transaction) {
         $photo = $request->input('picture_test_lab');
